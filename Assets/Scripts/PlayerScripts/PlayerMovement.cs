@@ -9,14 +9,22 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0.0f;
     bool jump = false;
     bool dash = false;
-
+    
+    [Header("Animacion")]
+    private Animator animator;
     // Start is called before the first frame update
 
     // Update is called once per frame
+    private void Start()
+    {
+
+        animator = GetComponent<Animator>();
+    }
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
+        animator.SetFloat("horizontal",Mathf.Abs(horizontalMove));
         if(Input.GetKeyDown(KeyCode.Space))
         {
             jump = true;
