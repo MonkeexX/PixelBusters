@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyScript : MonoBehaviour
+public class enemyScript : MonoBehaviour
 {
     [SerializeField] private Transform groundChecker;
     public int speed = 5;
@@ -20,12 +20,6 @@ public class EnemyScript : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
-
-        // Si los marcadores no se han asignado en el Inspector, mostrar un mensaje de advertencia
-        if (startPoint == null || endPoint == null)
-        {
-            Debug.LogWarning("Los marcadores de inicio y final no se han asignado en el Inspector.");
-        }
     }
 
     private void Update()
@@ -100,5 +94,11 @@ public class EnemyScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(groundChecker.transform.position, groundChecker.transform.position + Vector3.down);
     }
 }

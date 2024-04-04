@@ -8,7 +8,7 @@ public class muroGiro : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            EnemyScript enemyScript = collision.gameObject.GetComponent<EnemyScript>();
+            enemyScript enemyScript = collision.gameObject.GetComponent<enemyScript>();
             if (enemyScript != null)
             {
                 enemyScript.HitWall();
