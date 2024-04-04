@@ -4,17 +4,31 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
+    [SerializeField] private Transform groundChecker;
     public int speed = 5;
+    [SerializeField] private float distance;
     public float detectionRange = 5.0f;
-
+    private Rigidbody2D rb;
+    [SerializeField] private bool m_FacingRight = true;
     private GameObject player;
 
-    void Start()
+    // Marcadores de inicio y final de la patrulla
+    public Transform startPoint;
+    public Transform endPoint;
+
+    private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        rb = GetComponent<Rigidbody2D>();
+
+        // Si los marcadores no se han asignado en el Inspector, mostrar un mensaje de advertencia
+        if (startPoint == null || endPoint == null)
+        {
+            Debug.LogWarning("Los marcadores de inicio y final no se han asignado en el Inspector.");
+        }
     }
 
-    void Update()
+    private void Update()
     {
         if (player != null)
         {
@@ -23,7 +37,10 @@ public class EnemyScript : MonoBehaviour
             if (distanceToPlayer <= detectionRange)
             {
                 ChasePlayer();
-                detectionRange = 1000.0f;
+            }
+            else
+            {
+                Patrol();
             }
         }
         else
@@ -31,27 +48,50 @@ public class EnemyScript : MonoBehaviour
             Patrol();
         }
     }
-
-    void Patrol()
+    private void Patrol()
     {
-        // Aquí iría el código de patrullaje si se desea añadir en el futuro
-    }
+        // Mueve al enemigo hacia el siguiente punto
+        Vector3 targetPoint = m_FacingRight ? endPoint.position : startPoint.position;
+        Vector3 moveDirection = (targetPoint - transform.position).normalized;
+        rb.velocity = new Vector2(moveDirection.x * speed, rb.velocity.y);
 
-    void ChasePlayer()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-
-        if (player.transform.position.x > transform.position.x || player.transform.position.x < transform.position.x)
+        // Verifica si el enemigo ha llegado lo suficientemente cerca del punto de patrulla
+        if (Vector3.Distance(transform.position, targetPoint) < 0.1f && Mathf.Abs(rb.velocity.x) < 0.1f)
         {
+            // Cambia de dirección
             Flip();
         }
     }
 
-    void Flip()
+    private void ChasePlayer()
     {
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
+        // Orientar hacia el jugador
+        if (player.transform.position.x < transform.position.x && m_FacingRight)
+        {
+            Flip();
+        }
+        else if (player.transform.position.x > transform.position.x && !m_FacingRight)
+        {
+            Flip();
+        }
+
+        // Mover al enemigo hacia el jugador
+        Vector2 moveDirection = (player.transform.position - transform.position).normalized;
+        rb.velocity = new Vector2(moveDirection.x * speed, rb.velocity.y);
+    }
+
+    public void HitWall()
+    {
+        Flip();
+    }
+
+    private void Flip()
+    {
+        // Voltea al enemigo
+        m_FacingRight = !m_FacingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x = -1;
+        transform.localScale = theScale;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
