@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Net;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -11,26 +9,26 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private float distance;
     public float detectionRange = 5.0f;
     private Rigidbody2D rb;
-    [SerializeField] private bool isFacingRight = true;
-    [SerializeField] private bool rightMove;
-
-    public bool isChasing = false;
-    public bool isOnPatrol;
+    [SerializeField] private bool m_FacingRight = true;
     private GameObject player;
 
-    private Vector3 startPoint;
-    private Vector3 endPoint;
+    // Marcadores de inicio y final de la patrulla
+    public Transform startPoint;
+    public Transform endPoint;
 
-    void Start()
+    private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
 
-        startPoint = transform.position;
-        endPoint = startPoint + Vector3.right * 5f; // Define un punto final para la patrulla
+        // Si los marcadores no se han asignado en el Inspector, mostrar un mensaje de advertencia
+        if (startPoint == null || endPoint == null)
+        {
+            Debug.LogWarning("Los marcadores de inicio y final no se han asignado en el Inspector.");
+        }
     }
 
-    void Update()
+    private void Update()
     {
         if (player != null)
         {
@@ -39,57 +37,62 @@ public class EnemyScript : MonoBehaviour
             if (distanceToPlayer <= detectionRange)
             {
                 ChasePlayer();
-                isChasing = true;
-                isOnPatrol = false;
             }
             else
             {
                 Patrol();
-                isOnPatrol = true;
-                isChasing = false;
             }
         }
         else
         {
             Patrol();
-            isOnPatrol = true;
-            isChasing = false;
         }
     }
 
-    void Patrol()
+    private void Patrol()
     {
-        if (transform.position.x >= endPoint.x)
-        {
-            isFacingRight = false;
-        }
-        else if (transform.position.x <= startPoint.x)
-        {
-            isFacingRight = true;
-        }
+        // Mueve al enemigo hacia el siguiente punto
+        Vector3 targetPoint = m_FacingRight ? endPoint.position : startPoint.position;
+        Vector3 moveDirection = (targetPoint - transform.position).normalized;
+        rb.velocity = new Vector2(moveDirection.x * speed, rb.velocity.y);
 
-        if (isFacingRight)
+        // Verifica si el enemigo ha llegado lo suficientemente cerca del punto de patrulla
+        if (Vector3.Distance(transform.position, targetPoint) < 0.1f && Mathf.Abs(rb.velocity.x) < 0.1f)
         {
-            rb.velocity = new Vector2(speed, rb.velocity.y);
-        }
-        else
-        {
-            rb.velocity = new Vector2(-speed, rb.velocity.y);
+            // Cambia de dirección
+            Flip();
         }
     }
 
-    void ChasePlayer()
+    private void ChasePlayer()
     {
-        if (isOnPatrol == false && isChasing == true)
+        // Orientar hacia el jugador
+        if (player.transform.position.x < transform.position.x && m_FacingRight)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            Flip();
         }
+        else if (player.transform.position.x > transform.position.x && !m_FacingRight)
+        {
+            Flip();
+        }
+
+        // Mover al enemigo hacia el jugador
+        Vector2 moveDirection = (player.transform.position - transform.position).normalized;
+        rb.velocity = new Vector2(moveDirection.x * speed, rb.velocity.y);
     }
 
-    void Flip()
+    public void HitWall()
     {
-        isFacingRight = !isFacingRight;
-        transform.Rotate(0f, 180f, 0f);
+        Flip();
+    }
+
+    private void Flip()
+    {
+        // Voltea al enemigo
+        m_FacingRight = !m_FacingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -97,11 +100,6 @@ public class EnemyScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             Destroy(gameObject);
-        }
-
-        if (collision.gameObject.CompareTag("Muro"))
-        {
-            Flip();
         }
     }
 
