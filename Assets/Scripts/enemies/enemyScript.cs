@@ -20,6 +20,12 @@ public class enemyScript : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
+
+        // Si los marcadores no se han asignado en el Inspector, mostrar un mensaje de advertencia
+        if (startPoint == null || endPoint == null)
+        {
+            Debug.LogWarning("Los marcadores de inicio y final no se han asignado en el Inspector.");
+        }
     }
 
     private void Update()
@@ -42,6 +48,7 @@ public class enemyScript : MonoBehaviour
             Patrol();
         }
     }
+
     private void Patrol()
     {
         // Mueve al enemigo hacia el siguiente punto
@@ -84,7 +91,7 @@ public class enemyScript : MonoBehaviour
         // Voltea al enemigo
         m_FacingRight = !m_FacingRight;
         Vector3 theScale = transform.localScale;
-        theScale.x = -1;
+        theScale.x *= -1;
         transform.localScale = theScale;
     }
 
@@ -99,6 +106,6 @@ public class enemyScript : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(groundChecker.transform.position, groundChecker.transform.position + Vector3.down);
+        Gizmos.DrawLine(groundChecker.transform.position, groundChecker.transform.position + Vector3.down * distance);
     }
 }

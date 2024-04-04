@@ -8,7 +8,15 @@ using UnityEngine.UIElements;
 
 public class characterController : MonoBehaviour
 {
+    [Header("Animacion")]
+    private Animator animator;
     public int health = 100;
+    [SerializeField]
+    LayerMask groundMask;
+    [SerializeField]
+    private Vector3 gorundCheckOrigin;
+    [SerializeField]
+    private float groundCheckDistance;
     [SerializeField] private float m_JumpForce = 1000.0f;
     [Range(0, 0.3f)][SerializeField] private float m_MovementSmoothing = 0.05f;
     [SerializeField] private bool m_AirControl = false;
@@ -16,6 +24,7 @@ public class characterController : MonoBehaviour
     [SerializeField] private Transform m_GroundCheck;
     [SerializeField] private Transform m_WallCheck;
 
+    [SerializeField] private bool enSuelo;
     const float k_GroundedRadius = 0.2f;
     private bool m_Grounded;
     private Rigidbody2D m_Rigidbody2D;
@@ -52,6 +61,7 @@ public class characterController : MonoBehaviour
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
         if (OnFallEvent == null)
@@ -69,7 +79,11 @@ public class characterController : MonoBehaviour
 
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
         // This can be done using layers instead but Sample Assets will not overwrite your project settings.
+
         Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+        RaycastHit2D hit2D = Physics2D.Raycast(transform.position + gorundCheckOrigin, Vector2.down, groundCheckDistance, groundMask);
+        enSuelo = hit2D ? true : false;
+        animator.SetBool("enSuelo", enSuelo);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
@@ -90,6 +104,7 @@ public class characterController : MonoBehaviour
         {
             OnFallEvent.Invoke();
             Collider2D[] collidersWall = Physics2D.OverlapCircleAll(m_WallCheck.position, k_GroundedRadius, m_WhatIsGround);
+
             for (int i = 0; i < collidersWall.Length; i++)
             {
                 if (collidersWall[i].gameObject != null)
@@ -127,8 +142,6 @@ public class characterController : MonoBehaviour
             }
         }
     }
-
-
     public void Move(float move, bool jump, bool dash)
     {
         if (canMove)
@@ -156,13 +169,11 @@ public class characterController : MonoBehaviour
                 // If the input is moving the player right and the player is facing left...
                 if (move > 0 && !m_FacingRight && !isWallSlidding)
                 {
-                    // ... flip the player.
                     Flip();
                 }
                 // Otherwise if the input is moving the player left and the player is facing right...
                 else if (move < 0 && m_FacingRight && !isWallSlidding)
                 {
-                    // ... flip the player.
                     Flip();
                 }
             }
@@ -258,7 +269,7 @@ public class characterController : MonoBehaviour
         canDash = true;
     }
 
-    IEnumerator WaitToMove (float time)
+    IEnumerator WaitToMove(float time)
     {
         canMove = false;
         yield return new WaitForSeconds(time);
@@ -281,4 +292,3 @@ public class characterController : MonoBehaviour
         m_WallCheck.localPosition = new Vector3(Mathf.Abs(m_WallCheck.localPosition.x), m_WallCheck.localPosition.y, 0);
     }
 }
-

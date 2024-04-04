@@ -8,22 +8,20 @@ public class EnemyShoot : MonoBehaviour
     public GameObject bullet;
     public float intervaloDisparo = 5.0f; // Intervalo entre disparos en segundos
     private float tiempoUltimoDisparo; // Tiempo del último disparo
+    private Transform player; // Referencia al transform del jugador
 
-    // Start is called before the first frame update
     void Start()
     {
-        // Establecer el tiempo del último disparo al inicio para permitir el primer disparo inmediatamente
         tiempoUltimoDisparo = Time.time;
+        player = GameObject.FindGameObjectWithTag("Player").transform; // Encuentra el transform del jugador
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // Verificar si ha pasado el tiempo suficiente desde el último disparo
         if (Time.time - tiempoUltimoDisparo >= intervaloDisparo)
         {
-            Shoot(); // Disparar
-            tiempoUltimoDisparo = Time.time; // Actualizar el tiempo del último disparo
+            Shoot();
+            tiempoUltimoDisparo = Time.time;
         }
     }
 
