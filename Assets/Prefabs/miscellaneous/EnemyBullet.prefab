@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8376290376589932712}
   - component: {fileID: 1005970957402338546}
   - component: {fileID: -8740344765147466854}
-  - component: {fileID: -7249864138811791679}
   - component: {fileID: 5105837355223983389}
+  - component: {fileID: -7673249303120644850}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: EnemyBullet
@@ -147,19 +147,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 20
   "da\xF1o": 5
---- !u!114 &-7249864138811791679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9080541578639076010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e81b2a3f5a9b3bb45a8fc428544a1e20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quantity: 15
 --- !u!50 &5105837355223983389
 Rigidbody2D:
   serializedVersion: 4
@@ -187,3 +174,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-7673249303120644850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9080541578639076010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81b2a3f5a9b3bb45a8fc428544a1e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quantity: 15
+  maxLife: 100
+  actualHealth: 0
+  actualLife: 0
+  healthBar: {fileID: 0}

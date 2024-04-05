@@ -10,7 +10,6 @@ public class characterController : MonoBehaviour
 {
     [Header("Animacion")]
     private Animator animator;
-    public int health = 100;
     [SerializeField]
     LayerMask groundMask;
     [SerializeField]
