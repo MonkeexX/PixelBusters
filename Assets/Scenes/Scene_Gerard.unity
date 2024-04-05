@@ -4224,6 +4224,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: unmovable_breakable (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4786432292462964086, guid: 1d9f5f1785a146747a1ef32e40108816, type: 3}
+      propertyPath: m_TagString
+      value: Muro
+      objectReference: {fileID: 0}
     - target: {fileID: 7650501074760435092, guid: 1d9f5f1785a146747a1ef32e40108816, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -5218,12 +5222,16 @@ PrefabInstance:
       value: EnemyBase
       objectReference: {fileID: 0}
     - target: {fileID: 5438835622011337232, guid: d65635d3b8810f547bb769d42188f852, type: 3}
+      propertyPath: intervaloDisparo
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438835622011337232, guid: d65635d3b8810f547bb769d42188f852, type: 3}
       propertyPath: controladorDisparo
       value: 
       objectReference: {fileID: 1374488067}
     - target: {fileID: 7372674912189769730, guid: d65635d3b8810f547bb769d42188f852, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 154.8
+      value: 6.2
       objectReference: {fileID: 0}
     - target: {fileID: 7372674912189769730, guid: d65635d3b8810f547bb769d42188f852, type: 3}
       propertyPath: m_LocalPosition.y

@@ -11,6 +11,7 @@ public class enemyScript : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private bool m_FacingRight = true;
     private GameObject player;
+    private EnemyShoot enemyShoot;
 
     // Marcadores de inicio y final de la patrulla
     public Transform startPoint;
@@ -26,6 +27,9 @@ public class enemyScript : MonoBehaviour
         {
             Debug.LogWarning("Los marcadores de inicio y final no se han asignado en el Inspector.");
         }
+
+        // Obtener referencia al componente EnemyShoot
+        enemyShoot = GetComponent<EnemyShoot>();
     }
 
     private void Update()
@@ -61,6 +65,12 @@ public class enemyScript : MonoBehaviour
         {
             // Cambia de dirección
             Flip();
+
+            // Deshabilitar el disparo cuando comienza la patrulla
+            if (enemyShoot != null)
+            {
+                enemyShoot.EnableShooting(false);
+            }
         }
     }
 
@@ -74,6 +84,12 @@ public class enemyScript : MonoBehaviour
         else if (player.transform.position.x > transform.position.x && !m_FacingRight)
         {
             Flip();
+        }
+
+        // Habilita el disparo mientras persigue al jugador
+        if (enemyShoot != null)
+        {
+            enemyShoot.EnableShooting(true);
         }
 
         // Mover al enemigo hacia el jugador

@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     {
         // Almacenar la dirección de disparo en función de la escala X del jugador al inicio
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+
         if (player != null && player.transform.localScale.x < 0)
         {
             direccionDisparo = -Vector2.right;
@@ -31,11 +32,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Destroy(gameObject);
-        }
-        else if (collision.gameObject.tag != "Player")
+        if (!collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
         }
