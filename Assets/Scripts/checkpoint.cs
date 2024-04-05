@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.U2D;
 using UnityEngine;
 
-public class BlastZone : MonoBehaviour
+public class checkpoint : MonoBehaviour
 {
-    public GameObject player;
-    public Transform respwanpoint;
+    public GameObject signal;
+    public Transform respawnpoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +22,8 @@ public class BlastZone : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            player.transform.position = respwanpoint.position;
-
-        }
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Destroy(collision.gameObject);
-
+            respawnpoint.transform.position = transform.position;
         }
     }
 }
+
