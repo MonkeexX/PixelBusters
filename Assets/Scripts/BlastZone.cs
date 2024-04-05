@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class BlastZone : MonoBehaviour
 {
+    public GameObject player;
+    public Transform respwanpoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,7 @@ public class BlastZone : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
+            player.transform.position = respwanpoint.position;
             
         }
         if (collision.gameObject.CompareTag("Enemy"))
