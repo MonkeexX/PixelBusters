@@ -7,6 +7,8 @@ public class BlastZone : MonoBehaviour
 {
     public GameObject player;
     public Transform respwanpoint;
+    public HealthBar healthBar;
+    public enemyDamege life;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class BlastZone : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             player.transform.position = respwanpoint.position;
+            healthBar.ChangeActualLife(20);
 
         }
         if (collision.gameObject.CompareTag("Enemy"))
