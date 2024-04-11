@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float velocidad;
     [SerializeField] private float daño;
+    //public 
 
     private Vector2 direccionDisparo; // Almacena la dirección en la que se disparó la bala
 
@@ -36,5 +37,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+       
     }
 }

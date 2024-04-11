@@ -49,6 +49,10 @@ public class characterController : MonoBehaviour
     private float jumpWallDistX = 0.0f;
     private bool limitVelOnWallJump = false;
 
+    [Header("HealthBar")]
+    public HealthBar healthBar;
+
+
     [Header("Events")]
     [Space]
 

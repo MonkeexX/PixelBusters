@@ -9,6 +9,7 @@ public class enemyDamege : MonoBehaviour
     public float actualHealth;
     public float actualLife;
     private GameObject player; // Referencia al GameObject del jugador
+    public HealthBar healthBar;
 
     void Start()
     {
@@ -18,14 +19,9 @@ public class enemyDamege : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && player != null)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            // Acceder al componente characterHealth_and_Damage y reducir la salud
-            Combat playerHealth = player.GetComponent<Combat>();
-            if (playerHealth != null)
-            {
-                playerHealth.vida -= quantity;
-            }
+            //healthBar.ChangeActualLife(100);
         }
     }
 }

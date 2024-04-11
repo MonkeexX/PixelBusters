@@ -36,5 +36,15 @@ public class EnemyBullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<characterController>().healthBar.ChangeActualLife(14);
+            Destroy(gameObject);
+        }
+
     }
+
+
+
 }
