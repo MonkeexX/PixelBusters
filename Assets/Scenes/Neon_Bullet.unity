@@ -729,6 +729,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 671325376216742447, guid: 1804a28641dcfd3408c712ab2fb15b69, type: 3}
+      propertyPath: m_GravityScale
+      value: 9.8
+      objectReference: {fileID: 0}
     - target: {fileID: 4499016611557359466, guid: 1804a28641dcfd3408c712ab2fb15b69, type: 3}
       propertyPath: m_Name
       value: Dixon
@@ -788,6 +792,10 @@ PrefabInstance:
     - target: {fileID: 7629682531609848438, guid: 1804a28641dcfd3408c712ab2fb15b69, type: 3}
       propertyPath: invincible
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629682531609848438, guid: 1804a28641dcfd3408c712ab2fb15b69, type: 3}
+      propertyPath: m_JumpForce
+      value: 1750
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
