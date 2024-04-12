@@ -23,6 +23,7 @@ public class characterController : MonoBehaviour
     [SerializeField] private Transform m_GroundCheck;
     [SerializeField] private Transform m_WallCheck;
 
+
     [SerializeField] private bool enSuelo;
     const float k_GroundedRadius = 0.2f;
     private bool m_Grounded;
@@ -209,7 +210,7 @@ public class characterController : MonoBehaviour
 
                 if (isWallSlidding)
                 {
-                    if (move * transform.localScale.x > 0.1f)
+                    if (move *10 * transform.localScale.x > 0.1f)
                     {
                         StartCoroutine(WaitToEndSliding());
                     }
@@ -223,7 +224,7 @@ public class characterController : MonoBehaviour
                 if (jump && isWallSlidding)
                 {
                     m_Rigidbody2D.velocity = new Vector2(0f, 0f);
-                    m_Rigidbody2D.AddForce(new Vector2(transform.localScale.x * m_JumpForce * 1.2f, m_JumpForce));
+                    m_Rigidbody2D.AddForce(new Vector2(transform.localScale.x * m_JumpForce + 100, m_JumpForce));
                     jumpWallStartX = transform.position.x;
                     limitVelOnWallJump = true;
                     canDoubleJump = true;
