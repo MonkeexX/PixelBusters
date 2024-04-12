@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene_Pau.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Neon_Bullet.unity
+    guid: 2716c26cb9d00f04f9340ea42d93c240
   m_configObjects: {}
