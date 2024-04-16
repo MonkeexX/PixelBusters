@@ -23,12 +23,17 @@ public class PlayerShoot : MonoBehaviour
         {
             Shoot();
             disparo = true;
-            animator.SetBool("disparo",disparo);
+            
             
 
 
+        }  
+        else
+        {
+            disparo = false;
         }
-        disparo = false;
+        animator.SetBool("disparo", disparo);
+
 
     }
 
