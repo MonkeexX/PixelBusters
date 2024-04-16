@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
+    [Header("Animacion")]
+    public Animator animator;
+    private bool disparo;
     public Transform controladorDisparo;
     public GameObject bullet;
 
@@ -19,7 +22,19 @@ public class PlayerShoot : MonoBehaviour
         if(Input.GetButtonDown("Fire1")) 
         {
             Shoot();
+            disparo = true;
+            
+            
+
+
+        }  
+        else
+        {
+            disparo = false;
         }
+        animator.SetBool("disparo", disparo);
+
+
     }
 
     private void Shoot()
