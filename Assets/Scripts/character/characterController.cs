@@ -127,7 +127,7 @@ public class characterController : MonoBehaviour
             jumpWallDistX = (jumpWallStartX - transform.position.x) * transform.localScale.x;
             if (jumpWallDistX < -0.5f && jumpWallDistX > -1f)
             {
-                canMove = true;
+                canMove = false;
             }
             else if (jumpWallDistX < -1f && jumpWallDistX >= -2f)
             {
