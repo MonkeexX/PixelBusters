@@ -2222,6 +2222,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 939657028}
     - target: {fileID: 7629682531609848438, guid: 1804a28641dcfd3408c712ab2fb15b69, type: 3}
+      propertyPath: menuPause
+      value: 
+      objectReference: {fileID: 2049791051}
+    - target: {fileID: 7629682531609848438, guid: 1804a28641dcfd3408c712ab2fb15b69, type: 3}
       propertyPath: invincible
       value: 0
       objectReference: {fileID: 0}
@@ -38566,7 +38570,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: de3ccf669bfee704087c4bad0253acb1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

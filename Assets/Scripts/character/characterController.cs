@@ -63,6 +63,9 @@ public class characterController : MonoBehaviour
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
 
+    //MENU PAUSE
+    [SerializeField] GameObject menuPause;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -75,6 +78,25 @@ public class characterController : MonoBehaviour
             OnLandEvent = new UnityEvent();
     }
 
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+            menuPause.SetActive(!menuPause.activeInHierarchy);
+
+            if(menuPause.activeInHierarchy == true)
+            {
+                Time.timeScale = 0.0f;
+            }
+            else
+            {
+                Time.timeScale = 1.0f;
+            }
+            
+        }
+    }
 
     private void FixedUpdate()
     {
@@ -145,6 +167,10 @@ public class characterController : MonoBehaviour
                 m_Rigidbody2D.velocity = new Vector2(0, m_Rigidbody2D.velocity.y);
             }
         }
+
+
+     
+            
     }
     public void Move(float move, bool jump, bool dash)
     {

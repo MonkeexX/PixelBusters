@@ -25,17 +25,17 @@ public class UI : MonoBehaviour
 
     public void PauseMenu()
     {
-        PausePanel.SetActive(true);
+        //PausePanel.SetActive(true);
         OptionsPanel.SetActive(false);
-        Time.timeScale = 0.0f;
+        //Time.timeScale = 0.0f;
         isPaused = true;
     }
 
     public void Continue()
     {
-        PausePanel.SetActive(false);
+        //PausePanel.SetActive(false);
         OptionsPanel.SetActive(false);
-        Time.timeScale = 1.0f;
+        //Time.timeScale = 1.0f;
         isPaused = false;
     }
 
