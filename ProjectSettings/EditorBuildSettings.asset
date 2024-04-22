@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Neon_Bullet.unity
-    guid: 2716c26cb9d00f04f9340ea42d93c240
-  - enabled: 1
     path: Assets/Scenes/New Scene.unity
     guid: bce1aaed42a0f2c48935096e43e9a6a2
+  - enabled: 1
+    path: Assets/Scenes/Neon_Bullet.unity
+    guid: 2716c26cb9d00f04f9340ea42d93c240
   m_configObjects: {}
