@@ -38,10 +38,4 @@ public class UI : MonoBehaviour
         //Time.timeScale = 1.0f;
         isPaused = false;
     }
-
-    public void OptionsMenu()
-    {
-        OptionsPanel.SetActive(true);
-        PausePanel.SetActive(false);
-    }
 }

@@ -38940,7 +38940,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1798209309}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 102900000, guid: d853e88be3e01bd4a880af82df6c9673, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1798209309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40483,7 +40495,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1921044559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2049791056}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: Continue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1921044559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63335,6 +63359,7 @@ GameObject:
   - component: {fileID: 2049791054}
   - component: {fileID: 2049791053}
   - component: {fileID: 2049791052}
+  - component: {fileID: 2049791056}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -63426,6 +63451,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2049791056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049791051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7d94a1ec8538474f81f756031078885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PausePanel: {fileID: 0}
+  OptionsPanel: {fileID: 898563303}
 --- !u!1 &2062364919
 GameObject:
   m_ObjectHideFlags: 0
