@@ -1419,7 +1419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8139132dafbfec438a484c376a1c75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 920646374}
   respwanpoint: {fileID: 1379155606}
   healthBar: {fileID: 939657028}
 --- !u!50 &134117595
@@ -5804,7 +5804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8139132dafbfec438a484c376a1c75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 920646374}
   respwanpoint: {fileID: 0}
   healthBar: {fileID: 939657028}
 --- !u!50 &601575367
@@ -9348,6 +9348,8 @@ GameObject:
   - component: {fileID: 920646377}
   - component: {fileID: 920646376}
   - component: {fileID: 920646375}
+  - component: {fileID: 920646383}
+  - component: {fileID: 920646382}
   m_Layer: 1
   m_Name: Dixon
   m_TagString: Player
@@ -9428,7 +9430,7 @@ MonoBehaviour:
     m_Bits: 256
   gorundCheckOrigin: {x: 0, y: -0.75, z: 0}
   groundCheckDistance: 0.5
-  m_JumpForce: 1000
+  m_JumpForce: 1500
   m_MovementSmoothing: 0.05
   m_AirControl: 1
   m_WhatIsGround:
@@ -9441,7 +9443,7 @@ MonoBehaviour:
   m_DashForce: 25
   life: 10
   invincible: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 939657028}
   OnFallEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -9550,7 +9552,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920646374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.26, y: 1.3, z: 0}
+  m_LocalPosition: {x: 129.75, y: 5.1, z: 0}
   m_LocalScale: {x: 1.0166, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9560,6 +9562,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 153
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &920646382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920646374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7d94a1ec8538474f81f756031078885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PausePanel: {fileID: 898563303}
+  OptionsPanel: {fileID: 1704343178}
+--- !u!114 &920646383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920646374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98d63a01169c36418a076f6776c68e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vida: 100
+  maximoVida: 100
+  healthBar: {fileID: 939657028}
+  slider: {fileID: 939657030}
 --- !u!1 &929831366
 GameObject:
   m_ObjectHideFlags: 0
@@ -31768,6 +31800,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actualHealthPlayer: 100
+  animator: {fileID: 920646375}
+--- !u!114 &939657030 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4610693362682437254, guid: 42d25aa018228654ebe9aed6a246323f, type: 3}
+  m_PrefabInstance: {fileID: 1723632694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939657025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &947211097
 GameObject:
   m_ObjectHideFlags: 0
@@ -34111,7 +34155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8139132dafbfec438a484c376a1c75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 920646374}
   respwanpoint: {fileID: 586664982}
   healthBar: {fileID: 939657028}
 --- !u!50 &1173463998
