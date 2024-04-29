@@ -119,9 +119,9 @@ public class enemyScript : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(groundChecker.transform.position, groundChecker.transform.position + Vector3.down * distance);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawLine(groundChecker.transform.position, groundChecker.transform.position + Vector3.down * distance);
+    //}
 }
