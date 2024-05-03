@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
@@ -25,17 +26,25 @@ public class UI : MonoBehaviour
 
     public void PauseMenu()
     {
-        //PausePanel.SetActive(true);
-        OptionsPanel.SetActive(false);
-        //Time.timeScale = 0.0f;
+        PausePanel.SetActive(true);
+        //OptionsPanel.SetActive(true);
+        Time.timeScale = 0.0f;
         isPaused = true;
     }
 
     public void Continue()
     {
-        //PausePanel.SetActive(false);
-        OptionsPanel.SetActive(false);
-        //Time.timeScale = 1.0f;
+        PausePanel.SetActive(false);
+        //OptionsPanel.SetActive(false);
+        Time.timeScale = 1.0f;
+        isPaused = false;
+    }
+
+    public void Exit()
+    {
+        SceneManager.LoadScene("MainMenu");
+        PausePanel.SetActive(false);
+        Time.timeScale = 1.0f;
         isPaused = false;
     }
 }
