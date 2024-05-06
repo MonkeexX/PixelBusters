@@ -18,6 +18,9 @@ public class Bullet : MonoBehaviour
         if (player != null && player.transform.localScale.x < 0)
         {
             direccionDisparo = -Vector2.right;
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
         }
         else
         {
