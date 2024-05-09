@@ -327,6 +327,7 @@ public class characterController : MonoBehaviour
     {
       if (other.gameObject.CompareTag("Coin"))
         {
+            Destroy(other.gameObject);
             coins.coinCount++;
         }
     }
