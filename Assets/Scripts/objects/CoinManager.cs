@@ -5,6 +5,7 @@ using UnityEngine;
 public class CoinManager : MonoBehaviour
 {
     // Start is called before the first frame update
+    public int coinCount;
     void Start()
     {
         
