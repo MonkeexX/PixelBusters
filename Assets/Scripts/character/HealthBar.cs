@@ -8,6 +8,7 @@ public class HealthBar : MonoBehaviour
 {
     private Slider slider;
     public int actualHealthPlayer = 100;
+    public Material damage;
 
     
 
@@ -15,8 +16,8 @@ public class HealthBar : MonoBehaviour
     {
         slider = GetComponent<Slider>();
 
-        
-        
+        damage.SetFloat("_to_see", 0.0f);
+
     }
 
     public void ChangeMaxLife(float maxLife)
@@ -27,6 +28,15 @@ public class HealthBar : MonoBehaviour
     public void ChangeActualLife(float actualLife)
     {
         slider.value -= actualLife;
+
+        if (slider.value <= 20)
+        {
+            damage.SetFloat("_to_see", 1.17f);
+        }
+        else
+        {
+            damage.SetFloat("_to_see", 0.0f);
+        }
     }
 
     public void InicializeHealthBar(float actualHealth)
