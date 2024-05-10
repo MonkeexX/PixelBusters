@@ -38,7 +38,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _amount_hole: 2.63
-    - _to_see: 1.17
+    - _to_see: 0
     - _vorornoi_speed: 2
     m_Colors:
     - _damage_color: {r: 1, g: 0, b: 0.21692753, a: 0.85882354}

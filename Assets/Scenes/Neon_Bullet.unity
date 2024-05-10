@@ -44460,7 +44460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8139132dafbfec438a484c376a1c75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1039721835}
   respwanpoint: {fileID: 0}
   healthBar: {fileID: 939657028}
 --- !u!50 &998188631
