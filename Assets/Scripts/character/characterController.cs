@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 
 public class characterController : MonoBehaviour
 {
+    public CoinManager coins;
     [Header("Animacion")]
     private Animator animator;
     [SerializeField]
@@ -320,5 +321,14 @@ public class characterController : MonoBehaviour
         isWallSlidding = true;
         oldWallSlidding = false;
         m_WallCheck.localPosition = new Vector3(Mathf.Abs(m_WallCheck.localPosition.x), m_WallCheck.localPosition.y, 0);
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+      if (other.gameObject.CompareTag("Coin"))
+        {
+            Destroy(other.gameObject);
+            coins.coinCount++;
+        }
     }
 }
