@@ -229,7 +229,7 @@ public class characterController : MonoBehaviour
                     isWallSlidding = true;
                     m_WallCheck.localPosition = new Vector3(-m_WallCheck.localPosition.x, m_WallCheck.localPosition.y, 0);
                     Flip();
-                    StartCoroutine(WaitToCheck(0.1f));
+                    StartCoroutine(WaitToCheck(1.0f));
                     canDoubleJump = true;
                 }
                 isDashing = false;
