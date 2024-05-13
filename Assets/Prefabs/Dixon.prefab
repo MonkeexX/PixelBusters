@@ -14,9 +14,11 @@ GameObject:
   - component: {fileID: 5471754405517898240}
   - component: {fileID: 7629682531609848438}
   - component: {fileID: 723987110423499087}
-  - component: {fileID: 1816064275954172332}
   - component: {fileID: 3746894422084364335}
   - component: {fileID: 8730481151960843058}
+  - component: {fileID: 3828575191002919258}
+  - component: {fileID: 7285243741536861500}
+  - component: {fileID: 4597531419281150005}
   m_Layer: 1
   m_Name: Dixon
   m_TagString: Player
@@ -40,7 +42,7 @@ Transform:
   - {fileID: 9021504828633782629}
   - {fileID: 3517588479933539222}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6695554165771325743
 SpriteRenderer:
@@ -82,7 +84,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 785288214, guid: 8e5d398f4efcc1c439bbef0afb97cba9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -147,13 +149,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71ea5d8edabab54086ada5836d6683b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: {fileID: 327732273878730422, guid: fd5b5eeaca359dc4b8de4202123c36a4, type: 3}
+  coins: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 0
   gorundCheckOrigin: {x: 0, y: 0, z: 0}
   groundCheckDistance: 0
-  m_JumpForce: 1250
+  m_JumpForce: 1350
   m_MovementSmoothing: 0.05
   m_AirControl: 1
   m_WhatIsGround:
@@ -209,27 +211,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.028258324, y: -0.12876147}
   m_Size: {x: 1.1274529, y: 1.8765098}
   m_Direction: 0
---- !u!95 &1816064275954172332
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4499016611557359466}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 09fe20f0891206c4d843faa42123ca41, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &3746894422084364335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +235,57 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4499016611557359466}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7d94a1ec8538474f81f756031078885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PausePanel: {fileID: 0}
+  OptionsPanel: {fileID: 0}
+--- !u!95 &3828575191002919258
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4499016611557359466}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 09fe20f0891206c4d843faa42123ca41, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7285243741536861500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4499016611557359466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98d63a01169c36418a076f6776c68e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vida: 0
+  maximoVida: 100
+  healthBar: {fileID: 0}
+  slider: {fileID: 0}
+--- !u!114 &4597531419281150005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4499016611557359466}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7d94a1ec8538474f81f756031078885, type: 3}
   m_Name: 
@@ -366,6 +398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c2719b685af17498e30a9d4a0e667f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 3828575191002919258}
   controladorDisparo: {fileID: 3517588479933539222}
   bullet: {fileID: 9080541578639076010, guid: 14eca2491ce346c4bb1035bb4b5ac59e, type: 3}
