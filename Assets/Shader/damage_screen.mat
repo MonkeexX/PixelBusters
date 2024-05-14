@@ -37,9 +37,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _amount_hole: 2.63
+    - _amount_hole: 2.49
     - _to_see: 0
     - _vorornoi_speed: 2
     m_Colors:
-    - _damage_color: {r: 1, g: 0, b: 0.21692753, a: 0.85882354}
+    - _damage_color: {r: 1, g: 0.09090909, b: 0.6313726, a: 1}
   m_BuildTextureStacks: []
