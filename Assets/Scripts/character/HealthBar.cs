@@ -35,7 +35,7 @@ public class HealthBar : MonoBehaviour
 
         if (slider.value <= 20)
         {
-            damage.SetFloat("_to_see", 1.17f);
+            damage.SetFloat("_to_see", 0.73f);
         }
         else
         {
