@@ -13,6 +13,8 @@ public class enemyScript : MonoBehaviour
     private GameObject player;
     private EnemyShoot enemyShoot;
 
+    int lives = 3;
+
     // Marcadores de inicio y final de la patrulla
     public Transform startPoint;
     public Transform endPoint;
@@ -113,10 +115,19 @@ public class enemyScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (lives > 0)
+        {
+            if (collision.gameObject.CompareTag("Bullet"))
+            {
+                lives--;
+            }
+
+        }
+        else
         {
             Destroy(gameObject);
         }
+
     }
 
     //private void OnDrawGizmos()
