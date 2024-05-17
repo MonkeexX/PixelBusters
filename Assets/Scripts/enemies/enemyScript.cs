@@ -19,6 +19,8 @@ public class enemyScript : MonoBehaviour
     public Transform startPoint;
     public Transform endPoint;
 
+    [SerializeField] private ParticleSystem particles;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -120,6 +122,8 @@ public class enemyScript : MonoBehaviour
             if (collision.gameObject.CompareTag("Bullet"))
             {
                 lives--;
+                particles.transform.right = -collision.contacts[0].normal; 
+                particles.Play();
             }
 
         }
