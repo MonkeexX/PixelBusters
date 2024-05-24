@@ -19,7 +19,7 @@ public class enemyScript : MonoBehaviour
     // Marcadores de inicio y final de la patrulla
     public Transform startPoint;
     public Transform endPoint;
-  
+
     private ParticleSystem particles;
 
     private void Awake()
@@ -128,7 +128,6 @@ public class enemyScript : MonoBehaviour
             if (collision.gameObject.CompareTag("Bullet"))
             {
                 lives--;
-                particles.transform.right = -collision.contacts[0].normal; 
                 particles.Play();
             }
 
