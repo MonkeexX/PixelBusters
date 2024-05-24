@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ParticleSystem))]
 public class enemyScript : MonoBehaviour
 {
     [SerializeField] private Transform groundChecker;
@@ -18,8 +19,13 @@ public class enemyScript : MonoBehaviour
     // Marcadores de inicio y final de la patrulla
     public Transform startPoint;
     public Transform endPoint;
+  
+    private ParticleSystem particles;
 
-    [SerializeField] private ParticleSystem particles;
+    private void Awake()
+    {
+        particles = GetComponent<ParticleSystem>();
+    }
 
     private void Start()
     {
