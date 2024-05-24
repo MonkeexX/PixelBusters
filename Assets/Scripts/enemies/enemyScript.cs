@@ -5,13 +5,15 @@ using UnityEngine;
 public class enemyScript : MonoBehaviour
 {
     [SerializeField] private Transform groundChecker;
-    public int speed = 5;
+    public int speed = 100;
     [SerializeField] private float distance;
-    public float detectionRange = 5.0f;
+    public float detectionRange = 20.0f;
     private Rigidbody2D rb;
     [SerializeField] private bool m_FacingRight = true;
     private GameObject player;
     private EnemyShoot enemyShoot;
+    public float timeToMove = 0;
+
 
     int lives = 3;
 
@@ -31,7 +33,7 @@ public class enemyScript : MonoBehaviour
         }
 
         // Obtener referencia al componente EnemyShoot
-        enemyShoot = GetComponent<EnemyShoot>();
+        enemyShoot = GetComponent<EnemyShoot>(); 
     }
 
     private void Update()
@@ -53,6 +55,8 @@ public class enemyScript : MonoBehaviour
         {
             Patrol();
         }
+
+        timeToMove += Time.deltaTime;
     }
 
     private void Patrol()
@@ -95,8 +99,12 @@ public class enemyScript : MonoBehaviour
         }
 
         // Mover al enemigo hacia el jugador
-        Vector2 moveDirection = (player.transform.position - transform.position).normalized;
-        rb.velocity = new Vector2(moveDirection.x * speed, rb.velocity.y);
+        if (timeToMove >= 15.0f)
+        {
+            Vector2 moveDirection = (player.transform.position - transform.position).normalized;
+            rb.velocity = new Vector2(moveDirection.x * speed, rb.velocity.y);
+            timeToMove = 0;
+        }
     }
 
     public void HitWall()
