@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class enemyScript : MonoBehaviour
 {
-    [SerializeField] private Transform groundChecker;
+    [SerializeField] public Transform groundChecker;
     public int speed = 100;
     [SerializeField] private float distance;
     public float detectionRange = 20.0f;
@@ -98,13 +98,8 @@ public class enemyScript : MonoBehaviour
             enemyShoot.EnableShooting(true);
         }
 
-        // Mover al enemigo hacia el jugador
-        if (timeToMove >= 15.0f)
-        {
-            Vector2 moveDirection = (player.transform.position - transform.position).normalized;
-            rb.velocity = new Vector2(moveDirection.x * speed, rb.velocity.y);
-            timeToMove = 0;
-        }
+         Vector2 moveDirection = (player.transform.position - transform.position).normalized;
+         rb.velocity = new Vector2(moveDirection.x * speed, rb.velocity.y); 
     }
 
     public void HitWall()
