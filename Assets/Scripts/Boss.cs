@@ -15,6 +15,8 @@ public class Boss : MonoBehaviour
     private EnemyShoot enemyShoot;
     public float timeToMove = 0;
     public float timeToJump = 0;
+    float bossJumpX = 7000.0f;
+    float bossJumpY = 12000.0f;
 
 
     int lives = 49;
@@ -102,7 +104,7 @@ public class Boss : MonoBehaviour
         }
 
         // Mover al enemigo hacia el jugador
-        if (timeToMove >= 50.0f)
+        if (timeToMove >= 35.0f)
         {
             Vector2 moveDirection = (player.transform.position - transform.position).normalized;
             rb.velocity = new Vector2(moveDirection.x * speed, rb.velocity.y);
@@ -111,8 +113,14 @@ public class Boss : MonoBehaviour
 
         if (timeToJump >= 10.0f)
         {
-            rb.AddForce(new Vector2(-7000, 12000));
+            bossJumpX *= -1;
+            rb.AddForce(new Vector2(bossJumpX, bossJumpY));
             timeToJump = 0;
+        }
+
+        if (lives == 25 || lives == 5)
+        {
+
         }
     }
 
