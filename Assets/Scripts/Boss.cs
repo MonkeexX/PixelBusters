@@ -17,7 +17,7 @@ public class Boss : MonoBehaviour
     public float timeToJump = 0;
 
 
-    int lives = 3;
+    int lives = 49;
 
     // Marcadores de inicio y final de la patrulla
     public Transform startPoint;
