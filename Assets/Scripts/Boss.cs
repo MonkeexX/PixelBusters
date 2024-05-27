@@ -15,11 +15,13 @@ public class Boss : MonoBehaviour
     private EnemyShoot enemyShoot;
     public float timeToMove = 0;
     public float timeToJump = 0;
+    public float timeToFall = 0;
     float bossJumpX = 7000.0f;
     float bossJumpY = 12000.0f;
+    float bossJumpY2 = 700.0f;
 
 
-    int lives = 49;
+    public int lives = 49;
 
     // Marcadores de inicio y final de la patrulla
     public Transform startPoint;
@@ -37,7 +39,7 @@ public class Boss : MonoBehaviour
         }
 
         // Obtener referencia al componente EnemyShoot
-        enemyShoot = GetComponent<EnemyShoot>();
+        enemyShoot = GetComponentInChildren<EnemyShoot>();
     }
 
     private void Update()
@@ -104,7 +106,7 @@ public class Boss : MonoBehaviour
         }
 
         // Mover al enemigo hacia el jugador
-        if (timeToMove >= 35.0f)
+        if (timeToMove >= 12.0f)
         {
             Vector2 moveDirection = (player.transform.position - transform.position).normalized;
             rb.velocity = new Vector2(moveDirection.x * speed, rb.velocity.y);
@@ -118,9 +120,23 @@ public class Boss : MonoBehaviour
             timeToJump = 0;
         }
 
-        if (lives == 25 || lives == 5)
+        if (lives == 25)
         {
+            timeToFall += Time.deltaTime;
+            
 
+            if (timeToFall <= 22.0f)
+            {
+                enemyShoot.elevado = true;
+                rb.AddForce(new Vector2(0.0f, bossJumpY2));
+            }
+        }
+
+        if (timeToFall >= 22.0f)
+        {
+            bossJumpY2 *= -1;
+            rb.AddForce(new Vector2(0.0f, bossJumpY2));
+            enemyShoot.elevado = false;
         }
     }
 

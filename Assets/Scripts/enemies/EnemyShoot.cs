@@ -5,10 +5,14 @@ using UnityEngine;
 public class EnemyShoot : MonoBehaviour
 {
     public Transform controladorDisparo;
+    public Transform controladorDisparoHaciAbajo;
     public GameObject bullet;
+    public GameObject ball;
     public float intervaloDisparo = 3.0f; // Intervalo entre disparos en segundos
     private float tiempoUltimoDisparo = 0.0f; // Tiempo del último disparo
     private bool canShoot = true; // Variable para controlar si el enemigo puede disparar
+
+    public bool elevado = false;
 
     void Start()
     {
@@ -20,7 +24,14 @@ public class EnemyShoot : MonoBehaviour
         tiempoUltimoDisparo += Time.deltaTime;
         if (canShoot && tiempoUltimoDisparo >= intervaloDisparo)
         {
-            Shoot();
+            if (!elevado)
+            {
+                Shoot();
+            }
+            else
+            {
+                SpecialShoot();
+            }
             tiempoUltimoDisparo = 0.0f;
         }
     }
@@ -29,6 +40,12 @@ public class EnemyShoot : MonoBehaviour
     {
         GameObject newBullet = Instantiate(bullet, controladorDisparo.position, controladorDisparo.rotation);
         Destroy(newBullet.gameObject, 1.0f); // Destruir la bala después de 1 segundo
+    }
+
+    public void SpecialShoot()
+    {
+        GameObject specialBullet = Instantiate(ball, controladorDisparo.position, controladorDisparoHaciAbajo.rotation);
+        Destroy(specialBullet.gameObject, 10.0f);
     }
 
     // Método para habilitar o deshabilitar el disparo
