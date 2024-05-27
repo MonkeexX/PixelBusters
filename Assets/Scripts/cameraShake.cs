@@ -7,11 +7,13 @@ public class cameraShake : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
-    private CinemachineVirtualCamera CinemachineVirtualCamera;
-    private float ShakeIntensity = .25f;
-    private float ShakeTime = 0.2f;
+    public CinemachineVirtualCamera CinemachineVirtualCamera;
+    public float ShakeIntensity = .25f;
+    public float ShakeTime = 0.2f;
 
-    private float timer;
+    
+
+    public float timer;
     [SerializeField]
     private CinemachineBasicMultiChannelPerlin _cbmcp;
 
@@ -38,7 +40,7 @@ public class cameraShake : MonoBehaviour
         timer = ShakeTime;
     }
 
-    void StopShake()
+    public void StopShake()
     {
         _camera.transform.rotation = Quaternion.identity;
 
@@ -53,6 +55,8 @@ public class cameraShake : MonoBehaviour
         {
             ShakeCamera();
         }
+
+        
 
         if (timer > 0)
         {
