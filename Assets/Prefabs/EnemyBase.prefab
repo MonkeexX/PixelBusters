@@ -45,8 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controladorDisparo: {fileID: 2048080149257723271}
+  controladorDisparoHaciAbajo: {fileID: 0}
   bullet: {fileID: 9080541578639076010, guid: d4b7989aec766fe4db682b018702b7e6, type: 3}
-  intervaloDisparo: 5
+  ball: {fileID: 0}
+  intervaloDisparo: 3
+  elevado: 0
 --- !u!1 &2983705797501073206
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +116,7 @@ Transform:
   - {fileID: 2048080149257723271}
   - {fileID: 1773122223408552124}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1643649353412445292
 SpriteRenderer:
@@ -156,12 +159,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.010103226, a: 1}
+  m_Sprite: {fileID: 159512296, guid: 6742b326b53cbd14fbeccfeffa1c14a5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.21, y: 0.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -210,10 +213,10 @@ MonoBehaviour:
   speed: 3
   distance: 2
   detectionRange: 10
-  isFacingRight: 1
-  rightMove: 0
-  isChasing: 0
-  isOnPatrol: 1
+  m_FacingRight: 0
+  timeToMove: 0
+  startPoint: {fileID: 0}
+  endPoint: {fileID: 0}
 --- !u!61 &626116920579796294
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -246,16 +249,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.011205673}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 1.3125, y: 2.5}
+    newSize: {x: 0.21, y: 0.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.2241211, y: 2.5464115}
   m_EdgeRadius: 0
