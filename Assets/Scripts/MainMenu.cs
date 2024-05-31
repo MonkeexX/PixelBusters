@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene("Neon_Bullet");
+        SceneManager.LoadScene("Lore");
     }
 
     public void Salir()
