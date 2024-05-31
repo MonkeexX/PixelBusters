@@ -9,7 +9,6 @@ public class HealthBar : MonoBehaviour
 {
     private Slider slider;
     public int actualHealthPlayer = 100;
-    public Material damage;
     public GameObject life1;
     public GameObject life2;
     public GameObject life3;
@@ -19,8 +18,6 @@ public class HealthBar : MonoBehaviour
     public void Start()
     {
         slider = GetComponent<Slider>();
-
-        damage.SetFloat("_to_see", 0.0f);
 
     }
 
@@ -33,20 +30,11 @@ public class HealthBar : MonoBehaviour
     {
         slider.value -= actualLife;
 
-        if (slider.value <= 20)
-        {
-            damage.SetFloat("_to_see", 0.73f);
-        }
-        else
-        {
-            damage.SetFloat("_to_see", 0.0f);
-        }
-
         if (slider.value <= 0)
         {
             Destroy(life1);
             slider.value = 100;
-            damage.SetFloat("_to_see", 0.0f);
+            
 
             if (life1 == false)
             {

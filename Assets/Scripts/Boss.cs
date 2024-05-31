@@ -8,7 +8,7 @@ public class Boss : MonoBehaviour
     [SerializeField] private Transform groundChecker;
     public int speed = 100;
     [SerializeField] private float distance;
-    public float detectionRange = 20.0f;
+    public float detectionRange = 40.0f;
     private Rigidbody2D rb;
     [SerializeField] private bool m_FacingRight = true;
     private GameObject player;
@@ -44,26 +44,20 @@ public class Boss : MonoBehaviour
 
     private void Update()
     {
-        if (player != null)
-        {
-            float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+        timeToMove += Time.deltaTime;
+        timeToJump += Time.deltaTime;
 
-            if (distanceToPlayer <= detectionRange)
+            float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
+        Debug.Log(distanceToPlayer);
+
+        if (distanceToPlayer <= detectionRange)
             {
                 ChasePlayer();
             }
             else
             {
-                Patrol();
-            }
-        }
-        else
-        {
-            Patrol();
-        }
-
-        timeToMove += Time.deltaTime;
-        timeToJump += Time.deltaTime; 
+                //Patrol();
+            }       
     }
 
     private void Patrol()
@@ -108,6 +102,7 @@ public class Boss : MonoBehaviour
         // Mover al enemigo hacia el jugador
         if (timeToMove >= 12.0f)
         {
+            Debug.Log("JIJIJIJA");
             Vector2 moveDirection = (player.transform.position - transform.position).normalized;
             rb.velocity = new Vector2(moveDirection.x * speed, rb.velocity.y);
             timeToMove = 0;
