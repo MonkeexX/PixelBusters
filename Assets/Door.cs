@@ -1,13 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public float reconstructionTime = 1.0f;
-    public Collider2D door2Collider;
-    public SpriteRenderer door2Renderer;
+    public float reconstructionTime = 2.0f;
+    private Collider2D door2Collider;
+    private SpriteRenderer door2Renderer;
+
     void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -15,26 +14,25 @@ public class Door : MonoBehaviour
         door2Renderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
-            if(gameObject == null)
-            {
+            door2Collider.enabled = false;
+            door2Renderer.enabled = false;
 
-                StartCoroutine(ReconstructionAfterTime());
-            }
+            gameObject.SetActive(false);
+
+            StartCoroutine(ReconstructionAfterTime());
         }
     }
+
     private IEnumerator ReconstructionAfterTime()
     {
-        door2Collider.enabled = false;
-        door2Renderer.enabled = false;
-        
         yield return new WaitForSeconds(reconstructionTime);
-   
+
+        gameObject.SetActive(true);
+
         door2Collider.enabled = true;
         door2Renderer.enabled = true;
     }
