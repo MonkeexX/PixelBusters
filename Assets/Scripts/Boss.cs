@@ -17,8 +17,8 @@ public class Boss : MonoBehaviour
     public float timeToJump = 0;
     public float timeToFall = 0;
     float bossJumpX = 7000.0f;
-    float bossJumpY = 12000.0f;
-    float bossJumpY2 = 700.0f;
+    float bossJumpY = 8000.0f;
+    float bossJumpY2 = 30.0f;
 
 
     public int lives = 49;
