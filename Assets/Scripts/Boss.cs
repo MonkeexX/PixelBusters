@@ -5,6 +5,14 @@ using UnityEngine.EventSystems;
 
 public class Boss : MonoBehaviour
 {
+    [Header("Animacion")]
+    private Animator animator;
+    [SerializeField]
+    LayerMask groundMask;
+    [SerializeField]
+    private Vector3 gorundCheckOrigin;
+    [SerializeField]
+    private float groundCheckDistance;
     [SerializeField] private Transform groundChecker;
     public int speed = 100;
     [SerializeField] private float distance;
@@ -19,7 +27,7 @@ public class Boss : MonoBehaviour
     float bossJumpX = 7000.0f;
     float bossJumpY = 8000.0f;
     float bossJumpY2 = 30.0f;
-
+    [SerializeField] private bool enSuelo;
     public int lives = 49;
 
     // Marcadores de inicio y final de la patrulla
@@ -33,6 +41,7 @@ public class Boss : MonoBehaviour
     }
     private void Start()
     {
+         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
 
@@ -48,12 +57,14 @@ public class Boss : MonoBehaviour
 
     private void Update()
     {
-
+        RaycastHit2D hit2D = Physics2D.Raycast(transform.position + gorundCheckOrigin, Vector2.down, groundCheckDistance, groundMask);
+        enSuelo = hit2D ? true : false;
+        animator.SetBool("enSuelo", enSuelo);
         timeToMove += Time.deltaTime;
         timeToJump += Time.deltaTime;
 
             float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
-        Debug.Log(distanceToPlayer);
+        /*Debug.Log(distanceToPlayer);*/
 
         if (distanceToPlayer <= detectionRange)
             {
