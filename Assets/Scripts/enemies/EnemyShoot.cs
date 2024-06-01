@@ -11,12 +11,15 @@ public class EnemyShoot : MonoBehaviour
     public float intervaloDisparo = 3.0f; // Intervalo entre disparos en segundos
     private float tiempoUltimoDisparo = 0.0f; // Tiempo del último disparo
     private bool canShoot = true; // Variable para controlar si el enemigo puede disparar
-
+  //declaro el animator
     public bool elevado = false;
+    public bool disparo = true;
+    public Animator animator;
 
     void Start()
     {
 
+        
     }
 
     void Update()
@@ -26,14 +29,22 @@ public class EnemyShoot : MonoBehaviour
         {
             if (!elevado)
             {
-                Shoot();
+                animator.SetBool("shoot", true);
+                /*Shoot();*/
             }
             else
             {
                 SpecialShoot();
             }
             tiempoUltimoDisparo = 0.0f;
+            
         }
+        else
+        {
+            animator.SetBool("shoot", false);
+        }
+       
+
     }
 
     public void Shoot()

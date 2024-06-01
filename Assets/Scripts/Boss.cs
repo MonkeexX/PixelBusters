@@ -20,13 +20,17 @@ public class Boss : MonoBehaviour
     float bossJumpY = 8000.0f;
     float bossJumpY2 = 30.0f;
 
-
     public int lives = 49;
 
     // Marcadores de inicio y final de la patrulla
     public Transform startPoint;
     public Transform endPoint;
 
+
+    public void activateShoot()
+    {
+        enemyShoot.Shoot();
+    }
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -44,6 +48,7 @@ public class Boss : MonoBehaviour
 
     private void Update()
     {
+
         timeToMove += Time.deltaTime;
         timeToJump += Time.deltaTime;
 
@@ -102,7 +107,6 @@ public class Boss : MonoBehaviour
         // Mover al enemigo hacia el jugador
         if (timeToMove >= 12.0f)
         {
-            Debug.Log("JIJIJIJA");
             Vector2 moveDirection = (player.transform.position - transform.position).normalized;
             rb.velocity = new Vector2(moveDirection.x * speed, rb.velocity.y);
             timeToMove = 0;
