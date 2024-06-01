@@ -8,12 +8,7 @@ public class Game_Over_Menu : MonoBehaviour
     // Start is called before the first frame update
    public void Retry()
     {
-        SceneManager.LoadScene("Neon_Bullet");
-    }
-
-    public void Levels()
-    {
-
+        SceneManager.LoadScene("Level1");
     }
 
     public void Exit()
