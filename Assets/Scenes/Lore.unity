@@ -635,7 +635,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31.7, y: 231}
+  m_AnchoredPosition: {x: -23.3, y: 231}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1738724354
@@ -658,12 +658,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'NEON CITY, 2198
-
-
-    THE SPACE SULTAN HAS THE CONTROL OF ALL THE NARCOTRAFIC
-    OF THE CITY. DIXON''S DUTY IS TO PULL OVER HIM AND HIS MOB. DIXON IS A PRIVATE
-    DETECTIVE WITH A HARD MISION. WILL HE BE ABLE TO STOP SPACE SULTAN''S CRIMINALITY.'
+  m_text: "NEON CITY, 2198\n\nTHE SPACE SULTAN HAS CONTROL OVER ALL TRAFFICKING IN
+    NEON CITY. DIXON IS A PRIVATE DETECTIVE WITH A HARD MISSION: FIND SPACE SULTAN\u2019S
+    BASE AND PUT A STOP TO HIS WHOLE BUSINESS OF CRIME. WILL DIXON BE ANLE TO BRING
+    PEACE TO NEON CITY ONCE AND FOR  ALL?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 729b7809fc8fd714f87a3648a841e468, type: 2}
   m_sharedMaterial: {fileID: 1780266854007739698, guid: 729b7809fc8fd714f87a3648a841e468, type: 2}
@@ -690,8 +688,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65
-  m_fontSizeBase: 65
+  m_fontSize: 57.85
+  m_fontSizeBase: 57.85
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
