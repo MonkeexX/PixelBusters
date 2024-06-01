@@ -118,9 +118,14 @@ public class Boss : MonoBehaviour
         // Mover al enemigo hacia el jugador
         if (timeToMove >= 12.0f)
         {
+            animator.SetBool("Dash", true);
             Vector2 moveDirection = (player.transform.position - transform.position).normalized;
             rb.velocity = new Vector2(moveDirection.x * speed, rb.velocity.y);
             timeToMove = 0;
+        }
+        else
+        {
+            animator.SetBool("Dash", false);
         }
 
         if (timeToJump >= 10.0f)
@@ -148,6 +153,8 @@ public class Boss : MonoBehaviour
             rb.AddForce(new Vector2(0.0f, bossJumpY2));
             enemyShoot.elevado = false;
         }
+        
+
     }
 
     public void HitWall()
