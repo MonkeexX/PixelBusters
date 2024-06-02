@@ -50365,11 +50365,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2834404993027932875, guid: 42d25aa018228654ebe9aed6a246323f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 323.5
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2834404993027932875, guid: 42d25aa018228654ebe9aed6a246323f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -248
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2834404993027932875, guid: 42d25aa018228654ebe9aed6a246323f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -50848,6 +50848,14 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2822268777229235438, guid: c27d8688ae57d1e498fbeccbca792aa1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822268777229235438, guid: c27d8688ae57d1e498fbeccbca792aa1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.5999994
+      objectReference: {fileID: 0}
     - target: {fileID: 3291903115108496012, guid: c27d8688ae57d1e498fbeccbca792aa1, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -50900,9 +50908,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6149777897895591041, guid: c27d8688ae57d1e498fbeccbca792aa1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 6149777897895591041, guid: c27d8688ae57d1e498fbeccbca792aa1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.6
+      objectReference: {fileID: 0}
     - target: {fileID: 7003399789763576224, guid: c27d8688ae57d1e498fbeccbca792aa1, type: 3}
       propertyPath: m_Volume
       value: 0.174
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120145883354108713, guid: c27d8688ae57d1e498fbeccbca792aa1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120145883354108713, guid: c27d8688ae57d1e498fbeccbca792aa1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.5789995
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
